@@ -4,7 +4,7 @@
 # Produces static HTML/JS/CSS under frontend/dist.
 FROM node:22-bookworm-slim AS frontend-build
 WORKDIR /app/client/vite-project
-COPY client/vite-project/package.json /client/vite-project/package-lock.json ./
+COPY client/vite-project/package.json client/vite-project/package-lock.json ./
 RUN npm install --no-audit --no-fund --legacy-peer-deps
 COPY client/vite-project/ ./
 # Empty = browser calls /api on the same host as the page.
