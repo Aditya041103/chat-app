@@ -56,8 +56,5 @@ router.post("/", async (req, res) => {
     } catch (error) {
         console.log("Webhook verification failed :", error)
     }
-
-}
-
-
-)
+})
+export default router;

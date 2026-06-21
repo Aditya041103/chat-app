@@ -5,7 +5,7 @@ import cors from "cors"
 import { clerkMiddleware } from '@clerk/express'
 import fs from "fs";
 import path from "path";
-
+import clerkWebhook from "./webhook/clerkWebhook.js"
 const app = express();
 
 const PORT = process.env.PORT
