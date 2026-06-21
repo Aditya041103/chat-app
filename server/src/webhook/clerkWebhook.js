@@ -1,8 +1,8 @@
-import express, { Router } from "express"
+import express from "express"
 import User from "../models/user.js"
 import { verifyWebhook } from "@clerk/backend/webhooks"
 
-const router = new Router()
+const router = new express.Router()
 
 router.post("/", async (req, res) => {
     try {
