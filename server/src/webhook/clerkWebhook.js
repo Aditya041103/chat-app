@@ -1,5 +1,5 @@
 import express, { Router } from "express"
-import User from "../models/user"
+import User from "../models/user.js"
 import { verifyWebhook } from "@clerk/backend/webhook"
 
 const router = new Router()
@@ -40,6 +40,7 @@ router.post("/", async (req, res) => {
                 { clerkId: u.id, email, fullName, profilePic: u.image_url },
                 { new: true, upsert: true, setDefaultsOnInsert: true },
             );
+            res.status(200).json({ message: "User processed successfully" });
         }
         if (evt.type == "user.deleted") {
             const u = evt.data;
@@ -52,6 +53,7 @@ router.post("/", async (req, res) => {
             await User.findOneAndDelete(
                 { clerkId: u.id }
             );
+            res.status(200).json({ message: "User deleted successfully" });
         }
     } catch (error) {
         console.log("Webhook verification failed :", error)
