@@ -1,6 +1,6 @@
 import express, { Router } from "express"
 import User from "../models/user.js"
-import { verifyWebhook } from "@clerk/backend/webhook"
+import { verifyWebhook } from "@clerk/backend/webhooks"
 
 const router = new Router()
 
