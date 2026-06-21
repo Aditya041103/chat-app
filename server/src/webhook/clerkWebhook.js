@@ -25,7 +25,6 @@ router.post("/", async (req, res) => {
         const evt = await verifyWebhook(request, { signingSecret });
 
         if (evt.type === "user.created" || evt.type === "user.updated") {
-            console.log(u)
             const u = evt.data;
 
             const email =
